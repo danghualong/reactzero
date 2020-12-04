@@ -5,7 +5,7 @@ const buildPath="dist";
 
 module.exports={
     mode:"development",
-    entry:path.resolve(__dirname,"src/index.jsx"),
+    entry:path.resolve(__dirname,"src/index.tsx"),
     output:{
         path:path.resolve(__dirname,buildPath),
         filename:"[name].[hash].js"

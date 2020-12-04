@@ -11,7 +11,7 @@ import './index.css';
 
 const Root = document.getElementById('root');
 
-const Test = () => <div className="test">Version:2.0</div>;
+const Test = () => <div className="test">Version:3.0</div>;
 
 ReactDOM.render(
   <Router>
