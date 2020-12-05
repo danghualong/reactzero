@@ -1,22 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route
-} from "react-router-dom";
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-import './index.css';
+class Index extends React.Component<RouteComponentProps>{
+    constructor(props:RouteComponentProps){
+        super(props);
+        console.log(props);
+        console.log(this.props.location);
+    }
+    render() {
+        return (
+            <div>
+                <div>
+                    <label>当前登录用户:{this.props.location.name}</label>
+                    <Link to="/login">退出</Link>
+                </div>
+            </div>
+        );
+    }
+}
 
-const Root = document.getElementById('root');
-
-const Test = () => <div className="test">Version:3.0</div>;
-
-ReactDOM.render(
-  <Router>
-    <Route path='/' component={Test}>
-    </Route>
-  </Router>,
-  Root
-);
+export default withRouter(Index);

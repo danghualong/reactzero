@@ -5,7 +5,7 @@ const buildPath="dist";
 
 module.exports={
     mode:"development",
-    entry:path.resolve(__dirname,"src/index.tsx"),
+    entry:path.resolve(__dirname,"src/main.tsx"),
     output:{
         path:path.resolve(__dirname,buildPath),
         filename:"[name].[hash].js"
@@ -43,19 +43,23 @@ module.exports={
     plugins: [
         // 热更新的模块对象
         new webpack.HotModuleReplacementPlugin(),
-        // 在内存中生成页面的插件
+        // Generates an `index.html` file with the <script> injected
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public/index.html'),
-            title: 'ts-react-starter',
+            title: 'react from zero',
             filename: 'index.html'
         }),
     ],
+    resolve:{
+        extensions: ['.js', '.jsx','.tsx'],
+    },
     devServer: {
         contentBase: path.resolve(__dirname, buildPath),
         compress: true,
         port: 9000,
         hot: true,
         open: true,
+        historyApiFallback: true
     }
 
 };
