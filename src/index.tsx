@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import Room from './room'
 
 class Index extends React.Component<RouteComponentProps>{
     constructor(props:RouteComponentProps){
@@ -14,6 +15,7 @@ class Index extends React.Component<RouteComponentProps>{
                     <label>当前登录用户:{this.props.location.name}</label>
                     <Link to="/login">退出</Link>
                 </div>
+                <Room></Room>
             </div>
         );
     }

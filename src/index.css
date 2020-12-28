@@ -1,3 +1,9 @@
 .test{
     color:red;
 }
+
+.video_container{
+    width:300px;
+    height:200px;
+    background-color:gray;
+}

@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Login from './login'
 import Index from './index'
+import './index.css'
 
 export default class Framework extends React.Component{
     render() {

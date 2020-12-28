@@ -16,7 +16,11 @@ module.exports={
                 test:/\.(js|ts)x?$/,
                 exclude:/(node_modules)/,
                 use: {
-                    loader:"babel-loader"
+                    loader: "babel-loader",
+                    options: {
+                        //用babel-loader 需要把es6转化未es5
+                        presets: ["@babel/preset-env"]
+                      }
                 }
             },
             {
@@ -56,7 +60,7 @@ module.exports={
     devServer: {
         contentBase: path.resolve(__dirname, buildPath),
         compress: true,
-        port: 9000,
+        port: 9005,
         hot: true,
         open: true,
         historyApiFallback: true
