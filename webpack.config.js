@@ -8,19 +8,16 @@ module.exports={
     entry:path.resolve(__dirname,"src/main.tsx"),
     output:{
         path:path.resolve(__dirname,buildPath),
-        filename:"[name].[hash].js"
+        filename: "[name].[hash:8].js",
     },
     module:{
-        rules:[
+        rules: [
             {
                 test:/\.(js|ts)x?$/,
-                exclude:/(node_modules)/,
+                exclude: /(node_modules)/,
+                include:path.resolve(__dirname,"src"),
                 use: {
-                    loader: "babel-loader",
-                    options: {
-                        //用babel-loader 需要把es6转化未es5
-                        presets: ["@babel/preset-env"]
-                      }
+                    loader: "babel-loader"
                 }
             },
             {
@@ -60,10 +57,10 @@ module.exports={
     devServer: {
         contentBase: path.resolve(__dirname, buildPath),
         compress: true,
-        port: 9005,
+        port: 9000,
         hot: true,
         open: true,
-        historyApiFallback: true
+        historyApiFallback: true,
     }
 
 };

@@ -17,7 +17,7 @@ class Room extends React.Component<RouteComponentProps,State>{
     
     constructor(props: RouteComponentProps) {
         super(props);
-        this.HandleEnter=this.HandleEnter.bind(this);
+        // this.HandleEnter=this.HandleEnter.bind(this);
         this.HandleExit = this.HandleExit.bind(this);
         const userId = parseInt(Math.random() * 1e8 + "") + "";
         const config = genTestUserSig(userId);
@@ -69,7 +69,7 @@ class Room extends React.Component<RouteComponentProps,State>{
             </div>
         );
     }
-    async HandleEnter() {
+    HandleEnter = async () => {
         try {
             await this.state.client.join({ roomId: this.state.roomId });
             const localStream = TRTC.createStream({ userId: this.state.userId, audio: true, video: true });
@@ -83,14 +83,14 @@ class Room extends React.Component<RouteComponentProps,State>{
                 } catch (publishErr) {
                     console.error('本地流发布失败 ' + publishErr);
                 }
-            } catch(initErr) {
+            } catch (initErr) {
                 console.error('初始化本地流失败 ' + initErr);
             }
             
         } catch (joinErr) {
             console.error('进房失败 ' + joinErr);
         }
-    }
+    };
     async HandleExit() {
         try {
             if (this.state.localStream) {
