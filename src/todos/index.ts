@@ -2,7 +2,7 @@ import TodoReducer from "./reducers"
 import { createAddTodoAction, createRemoveTodoAction, createToggleTodoAction, AboutTodoAction }
     from "./actions"
 import TodoAdd from "./views/todo_add"
-import {TodoListComponent} from "./views/todolist"
+import TodoList from "./views/todolist"
 
 export {
     TodoReducer,
@@ -10,6 +10,6 @@ export {
     createRemoveTodoAction,
     createToggleTodoAction,
     TodoAdd,
-    TodoListComponent,
+    TodoList,
     AboutTodoAction,
 }

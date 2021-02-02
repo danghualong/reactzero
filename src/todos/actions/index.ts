@@ -3,7 +3,7 @@ import {Todo} from "../../entity"
 
 export interface AddTodoAction{
     type: ActionTypes.AddTodoActionType
-    item:Todo
+    content:string
 }
 
 export interface RemoveTodoAction{
@@ -19,10 +19,10 @@ export interface ToggleTodoAction{
 export type AboutTodoAction = AddTodoAction | RemoveTodoAction | ToggleTodoAction;
 
 // action 工厂函数
-export function createAddTodoAction(item:Todo):AddTodoAction {
+export function createAddTodoAction(content:string):AddTodoAction {
     return {
         type: Constants.ADD_TODO_ACTION,
-        item
+        content
     };
 }   
 export function createRemoveTodoAction(id:Number):RemoveTodoAction {

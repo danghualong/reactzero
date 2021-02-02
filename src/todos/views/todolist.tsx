@@ -5,7 +5,6 @@ import TodoItem from './todoitem'
 import { Todo, GlobalState } from '../../entity'
 import { Enums } from "../../constants"
 import {createToggleTodoAction,createRemoveTodoAction, createAddTodoAction } from "../actions"
-import { TodoAdd } from './todo_add';
 
 interface TodosProps{
     todos: Array<Todo>
@@ -14,26 +13,22 @@ interface TodosProps{
     onAddTodo: (item: Todo) => void
 }
 
-export class TodoList extends React.PureComponent<TodosProps>{
+class TodoList extends React.PureComponent<TodosProps>{
     render() {
         console.log("******", this.props.todos);
         return (
-            <div>
-                <label>TodoList</label>
-                <TodoAdd onAddTodo={()=>this.props.onAddTodo({ id: 1, content:"kaishi", completed: false }) }/>
-                <ul>
-                    {
-                        this.props.todos.map(p =>
-                            (<TodoItem
-                                key={p.id}
-                                id={p.id}
-                                content={p.content}
-                                onChange={() => this.props.onToggle(p.id)}
-                                onDelete={()=>this.props.onDelete(p.id)}
-                            />))
-                    }
-                </ul>
-            </div>
+            <ul>
+                {
+                    this.props.todos.map(p =>
+                        (<TodoItem
+                            key={p.id}
+                            id={p.id}
+                            content={p.content}
+                            onChange={() => this.props.onToggle(p.id)}
+                            onDelete={()=>this.props.onDelete(p.id)}
+                        />))
+                }
+            </ul>
             
         )
     }
@@ -65,6 +60,6 @@ const mapDispatchToProps = (dispatch:Dispatch) => {
     }
 }
 
-export const TodoListComponent= connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
 
 

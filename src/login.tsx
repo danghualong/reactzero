@@ -4,10 +4,6 @@ import { withRouter } from 'react-router-dom';
 
 
 class Login extends React.Component{
-    constructor() {
-        super();
-        this.onClickHandler=this.onClickHandler.bind(this);
-    }
     render() {
         return (
             <div>
@@ -20,7 +16,7 @@ class Login extends React.Component{
         );
     }
 
-    onClickHandler(){
+    onClickHandler=()=>{
         this.props.history.push({pathname:"/",name:"Mr.Wang"});
     };
 }
