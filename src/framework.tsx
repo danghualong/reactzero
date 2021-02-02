@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Login from './login'
 import Index from './index'
+import {TodoListComponent} from "./todos"
 import './index.css'
 
 export default class Framework extends React.Component{
@@ -17,6 +18,9 @@ export default class Framework extends React.Component{
 
                     </Route>
                     <Route exact path="/login" component={Login}>
+                    </Route>
+                    
+                    <Route exact path="/test" component={TodoListComponent}>
                     </Route>
                 </Switch>
             </Router>

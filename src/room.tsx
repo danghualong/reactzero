@@ -14,7 +14,6 @@ interface State{
 }
 
 class Room extends React.Component<RouteComponentProps,State>{
-    
     constructor(props: RouteComponentProps) {
         super(props);
         // this.HandleEnter=this.HandleEnter.bind(this);
