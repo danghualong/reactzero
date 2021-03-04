@@ -62,5 +62,4 @@ module.exports={
         open: true,
         historyApiFallback: true,
     }
-
 };

@@ -7,3 +7,11 @@
     height:200px;
     background-color:gray;
 }
+
+.xc-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
