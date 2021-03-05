@@ -1,6 +1,6 @@
-import { Todo } from "../../entity"
-import { AboutTodoAction } from "../actions"
-import {Constants} from "../../constants"
+import { Todo } from "../entity"
+import { AboutTodoAction } from "../todos"
+import {Constants} from "../constants"
 
 export default (state: Todo[]=[], action: AboutTodoAction)=> {
     switch (action.type) {

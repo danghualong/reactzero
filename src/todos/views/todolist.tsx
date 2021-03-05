@@ -15,7 +15,6 @@ interface TodosProps{
 
 class TodoList extends React.PureComponent<TodosProps>{
     render() {
-        console.log("******", this.props.todos);
         return (
             <ul>
                 {

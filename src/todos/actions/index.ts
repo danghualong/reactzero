@@ -1,17 +1,16 @@
 import { ActionTypes,Constants } from "../../constants"
-import {Todo} from "../../entity"
 
-export interface AddTodoAction{
+interface AddTodoAction{
     type: ActionTypes.AddTodoActionType
     content:string
 }
 
-export interface RemoveTodoAction{
+interface RemoveTodoAction{
     type: ActionTypes.RemoveTodoActionType
     id:Number
 }
 
-export interface ToggleTodoAction{
+interface ToggleTodoAction{
     type: ActionTypes.ToggleTodoActionType
     id:Number
 }

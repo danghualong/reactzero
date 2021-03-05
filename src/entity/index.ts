@@ -6,7 +6,15 @@ export interface Todo{
     completed: boolean
 }
 
+export interface User{
+    id: number
+    name: string
+    token: string
+    isOnline: boolean
+}
+
 export interface GlobalState{
     todos: Todo[]
-    filter:Enums.FilterEnum
+    filter: Enums.FilterEnum
+    user: User
 }

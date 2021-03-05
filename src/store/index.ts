@@ -1,12 +1,10 @@
 import { combineReducers, createStore } from "redux"
-import { FilterAction, FilterReducer } from "../filters"
-import { TodoReducer,AboutTodoAction  } from "../todos"
-import { Enums } from "../constants"
-import {GlobalState} from "../entity"
+import UserStateReducer from "./user_reducer"
+import TodoReducer  from "./todo_reducer"
 
 const reducers= combineReducers({
     todos: TodoReducer,
-    filter: FilterReducer
+    user: UserStateReducer
 });
 
 export default createStore(reducers);
