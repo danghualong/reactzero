@@ -1,7 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { GlobalState,User } from './entity';
 import { TodoAdd, TodoList } from './todos';
+// import store from './store';
 
-export default class TodoView extends React.Component{
+
+interface IProps extends RouteComponentProps{
+    user:User
+}
+
+class TodoView extends React.PureComponent<IProps>{
     render() {
         return (
             <div>
@@ -12,3 +21,12 @@ export default class TodoView extends React.Component{
         );
     }
 }
+
+
+
+export default withRouter(connect((state: GlobalState) => {
+    // console.log("TodoView::MapState:", state);
+    return {
+        user: state.user
+    };
+})(TodoView));

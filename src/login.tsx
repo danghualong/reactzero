@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Space, Form, Input, Checkbox } from 'antd';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import {createLoginUserAction} from './auth'
@@ -83,7 +83,6 @@ class Login extends React.PureComponent<ILoginProps, {}>{
     onFinish = (values: any) => {
         //保留token和当前用户信息
         this.props.onUserLogin(100, values["username"], "abc123");
-        console.log("------",this.props);
         this.props.history.push({pathname:"/"});
     };
 
@@ -106,7 +105,7 @@ const mapDispatchToProps = (dispatch:Dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login));
 
 // export default withRouter(Login);
 

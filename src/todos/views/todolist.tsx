@@ -10,7 +10,6 @@ interface TodosProps{
     todos: Array<Todo>
     onDelete: (id: number) => void
     onToggle: (id: number) => void
-    onAddTodo: (item: Todo) => void
 }
 
 class TodoList extends React.PureComponent<TodosProps>{
@@ -45,7 +44,7 @@ const getTodos = (todoList: Todo[], filter: Enums.FilterEnum) => {
 
 const mapStateToProps = (state:GlobalState) => {
     return {
-        todos:getTodos(state.todos,state.filter)
+        todos:getTodos(state.todos,Enums.FilterEnum.All)
     }
 }
 
@@ -53,9 +52,6 @@ const mapDispatchToProps = (dispatch:Dispatch) => {
     return {
         onDelete: (id: number) => dispatch(createRemoveTodoAction(id)),
         onToggle: (id: number) => dispatch(createToggleTodoAction(id)),
-        onAddTodo: (item: Todo) => {
-            dispatch(createAddTodoAction(item));
-        }
     }
 }
 

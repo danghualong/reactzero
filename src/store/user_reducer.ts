@@ -1,20 +1,27 @@
 import { UserStateAction } from '../auth'
 import { User } from '../entity'
-import {Constants} from "../constants"
+import { Constants } from "../constants"
 
-export default (user: User={id:0,name:"anonymous",token:"",isOnline:false}, action: UserStateAction) => {
+const defaultUser = {
+    id : 0,
+    isOnline : false,
+    name : "anonymous",
+    token : "",
+}
+
+const userReducer= (user: User=defaultUser, action: UserStateAction) => {
+    console.log("usrReducer:", user, action);
     switch (action.type) {
         case Constants.LOGIN_USER_ACTION:
-            return action.user;
+            return { ...user, ...action.user };
         case Constants.LOGOFF_USER_ACTION:
             if (user && user.id === action.id) {
-                user.id = 0;
-                user.isOnline = false;
-                user.name = "anonymous";
-                user.token = "";
+                return { ...user, ...defaultUser };
             }
             return user;
         default:
             return user;
     }
 };
+
+export default userReducer;

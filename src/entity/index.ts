@@ -1,4 +1,3 @@
-import {Enums} from "../constants"
 
 export interface Todo{
     id: number
@@ -15,6 +14,5 @@ export interface User{
 
 export interface GlobalState{
     todos: Todo[]
-    filter: Enums.FilterEnum
     user: User
 }
