@@ -1,5 +1,5 @@
-import {Constants} from "../constants"
-import { Todo } from "../entity"
+import {Constants} from "../../../constants"
+import { Todo } from "../../../entity"
 import { AboutTodoAction } from "./action"
 
 const todoReducer = (todos: Todo[] = [], action: AboutTodoAction) => {

@@ -4,7 +4,7 @@ import { Dispatch } from 'redux'
 import TodoItem from './todoitem'
 import { Todo, GlobalState } from '../../../entity'
 import { Enums } from "../../../constants"
-import {createToggleTodoAction,createRemoveTodoAction, createAddTodoAction } from "../../../store/action"
+import { createToggleTodoAction, createRemoveTodoAction } from "../store"
 
 interface TodosProps{
     todos: Array<Todo>

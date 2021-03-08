@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { Button } from 'antd';
-import { createAddTodoAction } from '../../../store/action';
+import { createAddTodoAction } from '../store';
 
 interface AddTodoProps{
     onAddTodo: (content:string) => void

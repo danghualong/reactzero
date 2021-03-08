@@ -3,7 +3,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import TodoAdd from './components/todo_add';
 import TodoList from './components/todolist';
 import { Provider } from 'react-redux';
-import store from '../../store/store';
+import { store } from './store';
 
 class TodoView extends React.PureComponent<RouteComponentProps>{
     render() {

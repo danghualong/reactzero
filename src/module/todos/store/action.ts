@@ -1,4 +1,4 @@
-import { ActionTypes,Constants } from "../constants"
+import { ActionTypes,Constants } from "../../../constants"
 
 interface AddTodoAction{
     type: ActionTypes.AddTodoActionType
