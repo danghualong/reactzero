@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import {
   BrowserRouter as Router,
+    Redirect,
   Route,
   Switch
 } from "react-router-dom";
@@ -15,9 +16,10 @@ export default class Routes extends React.Component{
             <Router>
                 <Suspense fallback={<div>loading...</div>}>
                     <Switch>
+                        <Route exact path="/login" component={Login} />
                         <AuthRoute exact path="/" component={Index}/>
                         <AuthRoute exact path="/todo" component={Todo}/>
-                        <Route exact path="/login" component={Login}/>
+                        <Redirect to="/"></Redirect>
                     </Switch>
                 </Suspense>
             </Router>
