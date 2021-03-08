@@ -1,36 +1,29 @@
 import React from 'react';
+import { Button } from 'antd';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import { GlobalState, User } from './entity';
-import Room from './room'
-import { connect } from 'react-redux'
+import Room from './module/chat_room/room'
+import { getUser, clear } from './services/user_service'
 
 
-interface IProps extends RouteComponentProps{
-    user:User
-}
-
-class Index extends React.PureComponent<IProps>{
-
+class Index extends React.PureComponent<RouteComponentProps>{
     render() {
-        // console.log("Index::Render:",store.getState());
+        const user = getUser();
         return (
             <div>
                 <div>
-                    <label>当前登录用户:{this.props.user.name}</label>
-                    <Link to="/login">退出</Link>
+                    <label>当前登录用户:{user?user.name:"---"}</label>
+                    <Button type="primary" onClick={this.onLogout}>退出</Button>
                     <Link to="/todo">todos</Link>
                 </div>
                 <Room></Room>
             </div>
         );
     }
+
+    onLogout = () => {
+        clear();
+        this.props.history.replace("/login");
+    };
 }
 
-const mapStateToProps = (state: GlobalState) => {
-    // console.log("Index::mapState:", state);
-    return {
-        user:state.user,
-    }
-}
-
-export default withRouter(connect(mapStateToProps, null)(Index));
+export default withRouter(Index);

@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import TodoItem from './todoitem'
-import { Todo, GlobalState } from '../../entity'
-import { Enums } from "../../constants"
-import {createToggleTodoAction,createRemoveTodoAction, createAddTodoAction } from "../actions"
+import { Todo, GlobalState } from '../../../entity'
+import { Enums } from "../../../constants"
+import {createToggleTodoAction,createRemoveTodoAction, createAddTodoAction } from "../../../store/action"
 
 interface TodosProps{
     todos: Array<Todo>

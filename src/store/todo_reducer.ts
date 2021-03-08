@@ -1,9 +1,9 @@
-import { Todo } from "../entity"
-import { AboutTodoAction } from "../todos"
 import {Constants} from "../constants"
+import { Todo } from "../entity"
+import { AboutTodoAction } from "./action"
 
 const todoReducer = (todos: Todo[] = [], action: AboutTodoAction) => {
-    console.log("todoReducer:", todos, action);
+    // console.log("todoReducer:", todos, action);
     switch (action.type) {
         case Constants.ADD_TODO_ACTION:
             let maxId = todos.length==0?0: Math.max.apply(Math, todos.map(p => p.id))

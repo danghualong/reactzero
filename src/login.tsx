@@ -1,15 +1,9 @@
 import React from 'react';
 import { Button, Card, Space, Form, Input, Checkbox } from 'antd';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
-import {createLoginUserAction} from './auth'
+import {save} from './services/user_service'
 
-interface ILoginProps extends RouteComponentProps{
-    onUserLogin: (id:number,name:string,token:string) => void
-}
-
-class Login extends React.PureComponent<ILoginProps, {}>{
+class Login extends React.PureComponent<RouteComponentProps>{
     layout = {
         labelCol: { span: 8 },
         wrapperCol: { span: 16 },
@@ -24,14 +18,16 @@ class Login extends React.PureComponent<ILoginProps, {}>{
     }
 
     componentDidMount() {
-        
+        console.log("login.tsx");
     }
 
     onReset = () => {
         this.form.current.resetFields();
     };
 
-    render=()=> {
+    render = () => {
+        
+        console.log("login.tsx::render");
         return (
             <div className="xc-login">
                 <Card size="default" className="xc-card">
@@ -82,7 +78,12 @@ class Login extends React.PureComponent<ILoginProps, {}>{
 
     onFinish = (values: any) => {
         //保留token和当前用户信息
-        this.props.onUserLogin(100, values["username"], "abc123");
+        save({
+            id: 100,
+            name: values["username"],
+            token: "abc123",
+            isOnline: true,
+        });
         this.props.history.push({pathname:"/"});
     };
 
@@ -91,21 +92,6 @@ class Login extends React.PureComponent<ILoginProps, {}>{
     };
 }
 
+export default withRouter(Login);
 
-const mapDispatchToProps = (dispatch:Dispatch) => {
-    return {
-        onUserLogin: (id:number,name:string,token:string) => {
-            dispatch(createLoginUserAction({
-                id,
-                name,
-                token,
-                isOnline:true,
-            }));
-        }
-    }
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(Login));
-
-// export default withRouter(Login);
 

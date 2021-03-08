@@ -2,7 +2,7 @@ import TRTC from 'trtc-js-sdk'
 import React from 'react';
 import { Button } from 'antd';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import { genTestUserSig } from '../public/debug/GenerateTestUserSig'
+import { genTestUserSig } from '../../../public/debug/GenerateTestUserSig'
 
 interface State{
     userId: String,

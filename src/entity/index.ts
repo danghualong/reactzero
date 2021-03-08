@@ -14,5 +14,4 @@ export interface User{
 
 export interface GlobalState{
     todos: Todo[]
-    user: User
 }

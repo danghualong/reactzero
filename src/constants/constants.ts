@@ -4,3 +4,8 @@ export const TOGGLE_TODO_ACTION = "ToggleTodoAction";
 export const FILTER_TODO_ACTION = "FilterTodoAction";
 export const LOGIN_USER_ACTION = "LoginUserAction";
 export const LOGOFF_USER_ACTION = "LogoffUserAction";
+
+
+// 业务常量
+export const USER = "user";
+export const TOKEN = "token";
