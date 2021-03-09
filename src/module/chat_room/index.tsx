@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from 'antd';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import Room from './module/chat_room/room'
-import { getUser, clear } from './services/user_service'
+import Room from './room'
+import { getUser, clear } from '../../services/user_service'
 
 
 class Index extends React.PureComponent<RouteComponentProps>{

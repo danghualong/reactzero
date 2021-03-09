@@ -1,17 +1,15 @@
 import { RouteConfig } from "../models"
 import { lazy } from "react";
-import Todo from "../module/todos/todo_view";
-import Index from "../index";
 
 const routes: RouteConfig[] = [
     {
         path:"/",
-        component: lazy(()=>import("../index")),
+        component: lazy(()=>import("../module/chat_room/index")),
         exact:true,
     },
     {
         path:"/index",
-        component: lazy(()=>import("../index")),
+        component: lazy(()=>import("../module/chat_room/index")),
         exact:true,
     },
     {

@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import AuthRoute from './components/auth_route'
 const Login = React.lazy(()=>import('./login'));
-const MainLayout = React.lazy(()=>import('./main_layout'));
+const Main = React.lazy(()=>import('./main'));
 
 export default class Routes extends React.Component{
     render() {
@@ -15,8 +15,8 @@ export default class Routes extends React.Component{
             <Router>
                 <Suspense fallback={<div>loading...</div>}>
                     <Switch>
-                        <Route exact path="/login" component={Login} />
-                        <AuthRoute exact path="/" component={MainLayout}/>
+                        <AuthRoute exact path="/login" component={Login} />
+                        <AuthRoute requireLogin exact path="/" component={Main} />
                         <Redirect to="/"></Redirect>
                     </Switch>
                 </Suspense>

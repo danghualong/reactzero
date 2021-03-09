@@ -3,9 +3,7 @@ import Layout, { Content, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
 import MenuItem from "antd/lib/menu/MenuItem";
 import React from "react";
-import { HashRouter, Link, Redirect, Route, Switch } from "react-router-dom";
-import Index from "./index";
-import Todo from "./module/todos/todo_view";
+import { HashRouter } from "react-router-dom";
 import routes from "./config/routes";
 import MainRoutes from "./main_routes"
 
