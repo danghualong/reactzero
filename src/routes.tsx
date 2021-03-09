@@ -1,14 +1,13 @@
 import React, { Suspense } from 'react';
 import {
-  BrowserRouter as Router,
+    BrowserRouter as Router,
     Redirect,
-  Route,
-  Switch
+    Route,
+    Switch
 } from "react-router-dom";
 import AuthRoute from './components/auth_route'
 const Login = React.lazy(()=>import('./login'));
-const Index = React.lazy(()=>import('./index'));
-const Todo = React.lazy(()=>import("./module/todos/todo_view"));
+const MainLayout = React.lazy(()=>import('./main_layout'));
 
 export default class Routes extends React.Component{
     render() {
@@ -17,8 +16,7 @@ export default class Routes extends React.Component{
                 <Suspense fallback={<div>loading...</div>}>
                     <Switch>
                         <Route exact path="/login" component={Login} />
-                        <AuthRoute exact path="/" component={Index}/>
-                        <AuthRoute exact path="/todo" component={Todo}/>
+                        <AuthRoute exact path="/" component={MainLayout}/>
                         <Redirect to="/"></Redirect>
                     </Switch>
                 </Suspense>
