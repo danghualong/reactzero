@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
 import 'antd/dist/antd.css';
-import "./index.css"
+import "./index.css";
+import RootRouter from './root_router';
 
 ReactDOM.render(
-  <Routes></Routes>,
+  <RootRouter></RootRouter>,
   document.getElementById('root')
 );

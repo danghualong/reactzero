@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Space, Form, Input, Checkbox } from 'antd';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import {save} from './services/user_service'
+import { save } from './services/user_service'
 
 class Login extends React.PureComponent<RouteComponentProps>{
     layout = {

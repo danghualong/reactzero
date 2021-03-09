@@ -5,7 +5,7 @@ import MenuItem from "antd/lib/menu/MenuItem";
 import React from "react";
 import { HashRouter } from "react-router-dom";
 import routes from "./config/routes";
-import MainRoutes from "./main_routes"
+import CustomRouter from "./custom_router"
 
 
 export default class extends React.PureComponent{
@@ -25,7 +25,7 @@ export default class extends React.PureComponent{
                             </Menu>
                         </Sider>
                         <Content>
-                            <MainRoutes configs={routes} mainPagePath={"/"} />
+                            <CustomRouter configs={routes} mainPagePath={"/"} />
                         </Content>
                     </Layout>
                 </Layout>
